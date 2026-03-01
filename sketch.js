@@ -37,14 +37,21 @@ function draw() {
 
   // TEXT DRAWING 
 
-  text('Conceptual Art', mapCornerXCoord+(mapScreenWidthRatio/5), 
-  mapCornerYCoord+(mapScreenHeightRatio/1.3))
-
+  // Makes the text blue
+  fill('blue')
+  // Draws the "conceptual art" text
+  let conceptualArtText = text('Conceptual Art', mapCornerXCoord+(mapScreenWidthRatio/5.04), 
+  mapCornerYCoord+(mapScreenHeightRatio/1.3));
+  // Draws the "design and illustration" text
   text('Design and Illustration', mapCornerXCoord+(mapScreenWidthRatio/1.33), 
-  mapCornerYCoord+(mapScreenHeightRatio/2.65))
-
+  mapCornerYCoord+(mapScreenHeightRatio/2.62));
+  // Draws the "resume" text
   text('Resume',mapCornerXCoord+(mapScreenWidthRatio/1.22), 
-  mapCornerYCoord+(mapScreenHeightRatio/1.08))
+  mapCornerYCoord+(mapScreenHeightRatio/1.08));
+
+  // TEXT INERACTIVITY
+ // if mouseX
+
 }
 
 // Resizes the canvas in case the window is resized
