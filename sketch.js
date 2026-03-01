@@ -4,6 +4,7 @@ let mapScreenWidthRatio;
 let mapScreenHeightRatio;
 let mapCornerXCoord;
 let mapCornerYCoord;
+let url;
 
 // Loads all graphic images for the page
 function preload(){
@@ -11,11 +12,15 @@ function preload(){
   // map image dimensions: 1247 × 843
 }
 
-// Draws a canvas the size of the browser window
+// Setup function
 function setup() {
+  // Draws canvas the size of the window
   createCanvas(window.innerWidth, window.innerHeight);
+  // Text formatting
   textSize(window.innerWidth/60);
   textStyle(ITALIC);
+  // URL
+  url = getURL();
 }
 
 function draw() {
@@ -80,7 +85,7 @@ function draw() {
   text('Design and Illustration', designAndIllusX, 
   designAndIllusY);
   if (mouseIsPressed){
-    console.log('yas')
+    location.assign("conceptualArt.html")
   }
  }
 
