@@ -35,22 +35,65 @@ function draw() {
   // Draws the map onto the canvas
   image(map, mapCornerXCoord, mapCornerYCoord, mapScreenWidthRatio, mapScreenHeightRatio);
 
+
   // TEXT DRAWING 
 
   // Makes the text blue
   fill('blue')
+  
   // Draws the "conceptual art" text
-  let conceptualArtText = text('Conceptual Art', mapCornerXCoord+(mapScreenWidthRatio/5.04), 
-  mapCornerYCoord+(mapScreenHeightRatio/1.3));
+  let conceptualArtX = mapCornerXCoord+(mapScreenWidthRatio/5.04);
+  let conceptualArtY = mapCornerYCoord+(mapScreenHeightRatio/1.3)
+  let conceptualArtText = text('Conceptual Art', conceptualArtX, 
+  conceptualArtY);
+  
+  
   // Draws the "design and illustration" text
-  text('Design and Illustration', mapCornerXCoord+(mapScreenWidthRatio/1.33), 
-  mapCornerYCoord+(mapScreenHeightRatio/2.62));
+  let designAndIllusX = mapCornerXCoord+(mapScreenWidthRatio/1.33);
+  let designAndIllusY = mapCornerYCoord+(mapScreenHeightRatio/2.62);
+  text('Design and Illustration', designAndIllusX, 
+    designAndIllusY);
+
   // Draws the "resume" text
-  text('Resume',mapCornerXCoord+(mapScreenWidthRatio/1.22), 
-  mapCornerYCoord+(mapScreenHeightRatio/1.08));
+  let resumeX = mapCornerXCoord+(mapScreenWidthRatio/1.22);
+  let resumeY = mapCornerYCoord+(mapScreenHeightRatio/1.08);
+  text('Resume', resumeX, 
+  resumeY);
 
   // TEXT INERACTIVITY
- // if mouseX
+
+  // Conceptual Art button
+ if ((mouseX >= conceptualArtX && mouseX <= (conceptualArtX+conceptualArtX/2.5))
+  && (mouseY <=conceptualArtY && mouseY >= conceptualArtY -(window.innerWidth/60))){
+  fill(232, 209, 27)
+  text('Conceptual Art', conceptualArtX, 
+  conceptualArtY);
+  if (mouseIsPressed){
+    console.log('yas')
+  }
+ }
+
+ // Design and Illustration Button
+ if ((mouseX >= designAndIllusX && mouseX <= (designAndIllusX+designAndIllusX/2.5))
+  && (mouseY <=designAndIllusY && mouseY >= designAndIllusY -(window.innerWidth/60))){
+  fill(232, 209, 27)
+  text('Design and Illustration', designAndIllusX, 
+  designAndIllusY);
+  if (mouseIsPressed){
+    console.log('yas')
+  }
+ }
+
+ // Resume Button
+ if ((mouseX >= resumeX && mouseX <= (resumeX+resumeX/2.5))
+  && (mouseY <=resumeY && mouseY >= resumeY -(window.innerWidth/60))){
+  fill(253, 253, 253)
+  text('Resume', resumeX, 
+  resumeY);
+  if (mouseIsPressed){
+    console.log('yas')
+  }
+ }
 
 }
 
