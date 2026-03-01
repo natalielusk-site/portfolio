@@ -14,6 +14,8 @@ function preload(){
 // Draws a canvas the size of the browser window
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
+  textSize(window.innerWidth/60);
+  textStyle(ITALIC);
 }
 
 function draw() {
@@ -33,10 +35,20 @@ function draw() {
   // Draws the map onto the canvas
   image(map, mapCornerXCoord, mapCornerYCoord, mapScreenWidthRatio, mapScreenHeightRatio);
 
+  // TEXT DRAWING 
 
+  text('Conceptual Art', mapCornerXCoord+(mapScreenWidthRatio/5), 
+  mapCornerYCoord+(mapScreenHeightRatio/1.3))
+
+  text('Design and Illustration', mapCornerXCoord+(mapScreenWidthRatio/1.33), 
+  mapCornerYCoord+(mapScreenHeightRatio/2.65))
+
+  text('Resume',mapCornerXCoord+(mapScreenWidthRatio/1.22), 
+  mapCornerYCoord+(mapScreenHeightRatio/1.08))
 }
 
 // Resizes the canvas in case the window is resized
 function windowResized(){
   resizeCanvas(window.innerWidth, window.innerHeight)
+  textSize(window.innerWidth/60)
 }
