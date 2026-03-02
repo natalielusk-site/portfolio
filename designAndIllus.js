@@ -1,5 +1,5 @@
 let images = [];
-
+let columnLengths = [];
 let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
 let yCoord = [];
@@ -25,15 +25,19 @@ function preload(){
 
 // Setup function
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight);
+    createCanvas(window.innerWidth, window.innerHeight*3);
     }
     
   
   // Draw function
     function draw() {
+      
       background(253, 253, 253);
       let xCoord;
       for(i = 0; i < images.length; i++){
+        columnLengths [0] = gapVar;
+        columnLengths [1] = gapVar;
+        columnLengths [2] = gapVar;
         if (i%3 == 0){
             xCoord = gapVar
         }
@@ -43,10 +47,14 @@ function setup() {
         if (i%3 == 2){
             xCoord = gapVar*3 + sizeVar*2
         }
-        image(images[i], xCoord, yCoord[i%3], sizeVar, 
+        image(images[i], xCoord, columnLengths[i], sizeVar, 
             (sizeVar/images[i].width)*images[i].height);
+        if (i > 2){
+            columnLengths[i]= (columnLengths [(i%3) + (i/3)] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
+           // console.log(columnLengths[i])
+        }
        //yCoord[i%3]+=(sizeVar/images[i].width)*images[i].height
-        console.log(yCoord[0])
+        console.log(columnLengths[0])
         
 
       }
