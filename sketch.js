@@ -36,7 +36,7 @@ function draw() {
   mapCornerXCoord = (window.innerWidth-mapScreenWidthRatio)/2
   mapCornerYCoord = (window.innerHeight-mapScreenHeightRatio)/2
   // Fills the background with hex code #e8d11b
-  background(	232, 209, 27);
+  background(	253, 253, 253);
   // Draws the map onto the canvas
   image(map, mapCornerXCoord, mapCornerYCoord, mapScreenWidthRatio, mapScreenHeightRatio);
 
@@ -74,7 +74,7 @@ function draw() {
   text('Conceptual Art', conceptualArtX, 
   conceptualArtY);
   if (mouseIsPressed){
-    console.log('yas')
+    location.assign("conceptualArt.html")
   }
  }
 
@@ -85,14 +85,14 @@ function draw() {
   text('Design and Illustration', designAndIllusX, 
   designAndIllusY);
   if (mouseIsPressed){
-    location.assign("conceptualArt.html")
+    location.assign("designAndIllus.html")
   }
  }
 
  // Resume Button
  if ((mouseX >= resumeX && mouseX <= (resumeX+resumeX/2.5))
   && (mouseY <=resumeY && mouseY >= resumeY -(window.innerWidth/60))){
-  fill(253, 253, 253)
+  fill(232, 209, 27)
   text('Resume', resumeX, 
   resumeY);
   if (mouseIsPressed){

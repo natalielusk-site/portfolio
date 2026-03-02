@@ -1,7 +1,16 @@
+
+// Setup function
 function setup() {
-    createCanvas(400, 400);
+  createCanvas(window.innerWidth, window.innerHeight);;
   }
   
+
+// Draw function
   function draw() {
-    background(125);
+    background(253, 253, 253);
   }
+
+// Resizes the canvas in case the window is resized
+function windowResized(){
+  resizeCanvas(window.innerWidth, window.innerHeight)
+}
