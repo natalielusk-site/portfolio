@@ -31,6 +31,18 @@ function preload(){
 
     // Studio Space
     images [3] = loadImage("/assets/studioSpace.png")
+
+    // Gem
+    images [4] = loadImage("/assets/gem.png")
+
+    // Findings
+    images [5] = loadImage("/assets/findings3.png")
+
+    // Orchid Lace
+    images [6] = loadImage("/assets/orchidLace2.png")
+
+    // System Sampler
+    images [7] = loadImage("/assets/systemSampler1.png")
   }
 
 // Setup function
@@ -40,47 +52,36 @@ function setup() {
     
   
   // Draw function
-    function draw() {
+  function draw() {
       
-      // Sets background color
-      background(253, 253, 253);
-
-    // Variable that contains the correct left x coordinate for each image
-      let xCoord;
-
-      // Loop that displays the images in three column format
-      for(i = 0; i < images.length; i++){
-
-        // sets the first three images at the same y coord
-        columnLengths [0] = gapVar;
-        columnLengths [1] = gapVar;
-        columnLengths [2] = gapVar;
-
-        // creates three different columns
-        if (i%3 == 0){
-            xCoord = gapVar
-        }
-        if (i%3 == 1){
-            xCoord = sizeVar + gapVar*2
-        }
-        if (i%3 == 2){
-            xCoord = gapVar*3 + sizeVar*2
-        }
-
-        // displays the images
-        image(images[i], xCoord, columnLengths[i], sizeVar, 
-            (sizeVar/images[i].width)*images[i].height);
-
-            // adds new y values to the columnLengths array by adding the length of the 
-            // previous image in the column to that previous image's y coordinate
-        if (i > 2){
-            columnLengths[i]= (columnLengths [(i%3) + (i/3)] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
-
-        }
-        
-
+    background(253, 253, 253);
+    let xCoord;
+    for(i = 0; i < images.length; i++){
+      columnLengths [0] = gapVar;
+      columnLengths [1] = gapVar;
+      columnLengths [2] = gapVar;
+      if (i%3 == 0){
+          xCoord = gapVar
       }
+      if (i%3 == 1){
+          xCoord = sizeVar + gapVar*2
+      }
+      if (i%3 == 2){
+          xCoord = gapVar*3 + sizeVar*2
+      }
+      image(images[i], xCoord, columnLengths[i], sizeVar, 
+          (sizeVar/images[i].width)*images[i].height);
+      if (i > 2){
+          columnLengths[i] = (columnLengths [i-3] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
+         // console.log(columnLengths[i])
+         //(i%3) + Math.floor(i/3)
+      }
+     //yCoord[i%3]+=(sizeVar/images[i].width)*images[i].height
+      console.log(columnLengths[4])
+      
+
     }
+  }
   
   // Resizes the canvas and other placement variables when the window is resized
   function windowResized(){
