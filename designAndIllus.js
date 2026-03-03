@@ -21,6 +21,8 @@ function preload(){
 
     // G4 UNC
     images [3] = loadImage("/assets/g4UNC.png")
+
+    images [4] = loadImage("/assets/orangeShortcakeThumbnail.png")
   }
 
 // Setup function
@@ -50,11 +52,11 @@ function setup() {
         image(images[i], xCoord, columnLengths[i], sizeVar, 
             (sizeVar/images[i].width)*images[i].height);
         if (i > 2){
-            columnLengths[i]= (columnLengths [(i%3) + (i/3)] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
+            columnLengths[i]= (columnLengths [(i%3) + Math.floor(i/3)] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
            // console.log(columnLengths[i])
         }
        //yCoord[i%3]+=(sizeVar/images[i].width)*images[i].height
-        console.log(columnLengths[0])
+        console.log(columnLengths[4])
         
 
       }

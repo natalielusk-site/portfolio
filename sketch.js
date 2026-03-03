@@ -85,7 +85,7 @@ function draw() {
   text('Design and Illustration', designAndIllusX, 
   designAndIllusY);
   if (mouseIsPressed){
-    location.assign("designAndIllus.html")
+    location.assign("designAndIllustration.html")
   }
  }
 
