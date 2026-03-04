@@ -67,7 +67,24 @@ function setup() {
       text('Design and Illustration', gapVar, gapVar*2);
 
       // LOGO PLACEMENT
-      image(natLuskLogo)
+      let logoXCoord = gapVar*3 +sizeVar*2 +(sizeVar-gapVar)
+      let logoYCoord = gapVar*.5
+      let logoWidth = gapVar*.75
+      let logoHeight = (logoWidth/natLuskLogo.width)*natLuskLogo.height
+      image(natLuskLogo, logoXCoord, logoYCoord, logoWidth, logoHeight);
+
+      // HOME BUTTON
+
+      // changes cursor to green arrow when over the logo
+      // and, if mouse is pressed, sends back to homepage
+      if (mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+        && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight){
+          cursor("/assets/cursor.png");
+          if (mouseIsPressed){
+            location.assign("index.html")}}
+      if (mouseY>=0 && mouseY<= gapVar*3 &&(!(mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+        && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight))){
+        cursor(ARROW);}
 
       // VARIABLES AND ARRAYS
       let xCoord;

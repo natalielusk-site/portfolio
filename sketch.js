@@ -5,11 +5,15 @@ let mapScreenHeightRatio;
 let mapCornerXCoord;
 let mapCornerYCoord;
 let url;
+let sizeVar = window.innerWidth/4;
+let gapVar = sizeVar/4;
+let natLuskLogo;
 
 // Loads all graphic images for the page
 function preload(){
   map = loadImage("/assets/mapJustDots.png")
   // map image dimensions: 1247 × 843
+  natLuskLogo = loadImage("/assets/natLuskLogo.png")
 }
 
 // Setup function
@@ -26,17 +30,30 @@ function setup() {
 function draw() {
   
   // IMAGE DRAWING
+
+  // LOGO PLACEMENT
+  let logoXCoord = gapVar*3 +sizeVar*2 +(sizeVar-gapVar)
+  let logoYCoord = gapVar*.5
+  let logoWidth = gapVar*.75
+  let logoHeight = (logoWidth/natLuskLogo.width)*natLuskLogo.height
+
+
+
   
+
   // Creates a variable to determine the width of the map
   // based on the size of the window
   mapScreenWidthRatio = window.innerWidth*.75
   mapScreenHeightRatio = (window.innerWidth*.75)*.676
+  
   // Creates coordinates for the top left corner of the
   // map so that it will be centered in the window
   mapCornerXCoord = (window.innerWidth-mapScreenWidthRatio)/2
   mapCornerYCoord = (window.innerHeight-mapScreenHeightRatio)/2
+ 
   // Fills the background with hex code #e8d11b
   background(	253, 253, 253);
+  image(natLuskLogo, logoXCoord, logoYCoord, logoWidth, logoHeight);
   // Draws the map onto the canvas
   image(map, mapCornerXCoord, mapCornerYCoord, mapScreenWidthRatio, mapScreenHeightRatio);
 
@@ -106,4 +123,6 @@ function draw() {
 function windowResized(){
   resizeCanvas(window.innerWidth, window.innerHeight)
   textSize(window.innerWidth/60)
+  sizeVar = window.innerWidth/4
+  gapVar = sizeVar/4
 }

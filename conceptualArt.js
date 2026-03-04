@@ -1,47 +1,42 @@
-
-// GLOBAL VARIABLES
-
-// array that contains portfolio images
 let images = [];
-
-// array that contains top y coordinate for each image
 let columnLengths = [];
-
-// variables that define the column widths and the gaps between them
-// based on the size of the window
+let locations = [];
 let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
-let yCoord = [];
-yCoord [0] = gapVar;
-yCoord [1] = gapVar;
-yCoord [2] = gapVar;
+let natLuskLogo;
 
-// Preloads all of the images to be displayed in the portfolio
 function preload(){
     
-    // Accumulation Installation
-    images[0] = loadImage("/assets/accumulation.png")
+    // Logo
+    natLuskLogo = loadImage("/assets/natLuskLogo.png")
+    
+    // PORTFOLIO IMAGES
 
+    // Accumulation
+    images[0] = loadImage("/assets/conceptualArt/accumulation.png")
+    locations [0] = "/designAndIllustration/corneredPoster.html"
+    
     // Mon Chair
-    images [1] = loadImage("/assets/monChair.png")
+    images[1] = loadImage("/assets/conceptualArt/monChair.png")
 
     // Satisfying
-    images [2] = loadImage("/assets/soSatisfying.png")
+    images[2] = loadImage("/assets/conceptualArt/soSatisfying.png")
 
     // Studio Space
-    images [3] = loadImage("/assets/studioSpace.png")
-
-    // Gem
-    images [4] = loadImage("/assets/gem.png")
+    images[3] = loadImage("/assets/conceptualArt/studioSpace.png")
 
     // Findings
-    images [5] = loadImage("/assets/findings3.png")
+    images[4] = loadImage("/assets/conceptualArt/findings3.png")
+
+    // Gem
+    images[5] = loadImage("/assets/conceptualArt/gem.png")
 
     // Orchid Lace
-    images [6] = loadImage("/assets/orchidLace2.png")
+    images[6] = loadImage("/assets/conceptualArt/orchidLace2.png")
 
     // System Sampler
-    images [7] = loadImage("/assets/systemSampler1.png")
+    images[7] = loadImage("/assets/conceptualArt/systemSampler1.png")
+    
   }
 
 // Setup function
@@ -51,38 +46,96 @@ function setup() {
     
   
   // Draw function
-  function draw() {
+    function draw() {
       
-    background(253, 253, 253);
-    let xCoord;
-    for(i = 0; i < images.length; i++){
-      columnLengths [0] = gapVar;
-      columnLengths [1] = gapVar;
-      columnLengths [2] = gapVar;
-      if (i%3 == 0){
-          xCoord = gapVar
-      }
-      if (i%3 == 1){
-          xCoord = sizeVar + gapVar*2
-      }
-      if (i%3 == 2){
-          xCoord = gapVar*3 + sizeVar*2
-      }
-      image(images[i], xCoord, columnLengths[i], sizeVar, 
-          (sizeVar/images[i].width)*images[i].height);
-      if (i > 2){
-          columnLengths[i] = (columnLengths [i-3] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
-         // console.log(columnLengths[i])
-         //(i%3) + Math.floor(i/3)
-      }
-     //yCoord[i%3]+=(sizeVar/images[i].width)*images[i].height
-      console.log(columnLengths[4])
-      
+      // FORMATTING
+      background(253, 253, 253);
+      textFont('Helvetica')
+      textSize(gapVar*.75);
+      textStyle(BOLD);
+      text('Conceptual Art', gapVar, gapVar*2);
 
+      // LOGO PLACEMENT
+      let logoXCoord = gapVar*3 +sizeVar*2 +(sizeVar-gapVar)
+      let logoYCoord = gapVar*.5
+      let logoWidth = gapVar*.75
+      let logoHeight = (logoWidth/natLuskLogo.width)*natLuskLogo.height
+      image(natLuskLogo, logoXCoord, logoYCoord, logoWidth, logoHeight);
+
+      // HOME BUTTON
+
+      // changes cursor to green arrow when over the logo
+      // and, if mouse is pressed, sends back to homepage
+      if (mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+        && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight){
+          cursor("/assets/cursor.png");
+          if (mouseIsPressed){
+            location.assign("index.html")}}
+      if (mouseY>=0 && mouseY<= gapVar*3 &&(!(mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+        && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight))){
+        cursor(ARROW);}
+
+      // VARIABLES AND ARRAYS
+      let xCoord;
+      let whichXLength = [];
+      whichXLength [0] = (mouseX >= gapVar && mouseX <= gapVar+sizeVar);
+      whichXLength [1] = (mouseX >= gapVar*2 + sizeVar && mouseX <= gapVar*2 +sizeVar*2);
+      whichXLength [2] = (mouseX >= gapVar*3 + sizeVar*2 && mouseX <= gapVar*3 + sizeVar*3)
+      
+      // IMAGE DRAWING I LOOP
+      for(i = 0; i < images.length; i++){
+
+        // sets y coords of first three images
+        columnLengths [0] = gapVar*3;
+        columnLengths [1] = gapVar*3;
+        columnLengths [2] = gapVar*3;
+
+        // "sorts" images from array into columns
+        if (i%3 == 0) {
+            xCoord = gapVar};
+        if (i%3 == 1) {
+            xCoord = sizeVar + gapVar*2};
+        if (i%3 == 2) {
+            xCoord = gapVar*3 + sizeVar*2};
+        
+        // draws images onto canvas
+        image(images[i], xCoord, columnLengths[i], sizeVar, 
+            (sizeVar/images[i].width)*images[i].height);
+
+        // keeps track of increasing y coordinates
+        // to make masonry-style image display
+        if (i > 2){
+            columnLengths[i] = (columnLengths [i-3] + 
+              (sizeVar/images[i-3].width)*images[i-3].height + gapVar)};
+        
+        // when cursor hovers over images changes to
+        // custom cursor
+        if (mouseX >= xCoord && mouseX <= xCoord + sizeVar && 
+          mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+
+          (sizeVar/images[i].width)*images[i].height) {
+          cursor("/assets/cursor.png");
+
+          // sends user to specific project page when
+          // they click on an image
+          if (mouseIsPressed){
+            location.assign(locations[i])}} 
+        
+        // recognizes when cursor is not over an image to 
+        // change back to the regular cursor
+        if ((mouseX >=0 && mouseX <= gapVar) // x within first gap
+        || (mouseX >= gapVar+sizeVar && 
+          mouseX <= gapVar*2 + sizeVar) // x within second gap
+        || (mouseX >= gapVar*2 + sizeVar*2 && 
+          mouseX <= gapVar*3 +sizeVar*2) // x within third gap
+        || ((mouseX >= gapVar*3 + sizeVar*3 
+          && mouseX <= gapVar*4 +sizeVar*3)) // x within fourth gap
+        || (whichXLength[i%3] && mouseY >= columnLengths[i] - gapVar 
+          && mouseY <= columnLengths[i])){
+          cursor(ARROW)};
+      }
     }
-  }
   
-  // Resizes the canvas and other placement variables when the window is resized
+  // Resizes the canvas in case the window is resized
   function windowResized(){
     resizeCanvas(window.innerWidth, window.innerHeight*3)
     sizeVar = window.innerWidth/4
