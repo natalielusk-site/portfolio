@@ -27,7 +27,6 @@ function preload(){
 
     // Satisfying
     images [2] = loadImage("/assets/soSatisfying.png")
-    // map image dimensions: 1247 × 843
 
     // Studio Space
     images [3] = loadImage("/assets/studioSpace.png")
