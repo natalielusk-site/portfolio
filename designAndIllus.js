@@ -3,10 +3,6 @@ let columnLengths = [];
 let locations = [];
 let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
-let yCoord = [];
-yCoord [0] = gapVar;
-yCoord [1] = gapVar;
-yCoord [2] = gapVar;
 
 function preload(){
     
@@ -59,15 +55,22 @@ function setup() {
     function draw() {
       
       background(253, 253, 253);
+      textFont('Helvetica')
+      textSize(gapVar*.75);
+      textStyle(BOLD);
+      text('Design and Illustration', gapVar, gapVar*2);
+
       let xCoord;
       let whichXLength = [];
       whichXLength [0] = (mouseX >= gapVar && mouseX <= gapVar+sizeVar);
       whichXLength [1] = (mouseX >= gapVar*2 + sizeVar && mouseX <= gapVar*2 +sizeVar*2);
       whichXLength [2] = (mouseX >= gapVar*3 + sizeVar*2 && mouseX <= gapVar*3 + sizeVar*3)
+      
+      
       for(i = 0; i < images.length; i++){
-        columnLengths [0] = gapVar;
-        columnLengths [1] = gapVar;
-        columnLengths [2] = gapVar;
+        columnLengths [0] = gapVar*3;
+        columnLengths [1] = gapVar*3;
+        columnLengths [2] = gapVar*3;
         if (i%3 == 0){
             xCoord = gapVar
         }
@@ -90,6 +93,9 @@ function setup() {
           mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+(sizeVar/images[i].width)*images[i].height) {
           console.log('yay');
           cursor(HAND);
+          if (mouseIsPressed){
+            location.assign(locations[i])
+          }
         } 
 
         if ((mouseX >=0 && mouseX <= gapVar) // x within first gap
