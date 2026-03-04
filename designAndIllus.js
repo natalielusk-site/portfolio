@@ -3,12 +3,18 @@ let columnLengths = [];
 let locations = [];
 let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
+let natLuskLogo;
 
 function preload(){
     
+    // Logo
+    natLuskLogo = loadImage("/assets/natLuskLogo.png")
+    
+    // PORTFOLIO IMAGES
+
     // Cornered Poster
     images[0] = loadImage("/assets/designAndIllustration/corneredPoster.png")
-    locations [0] = "/designAndIllustrationPages/corneredPoster.html"
+    locations [0] = "/designAndIllustration/corneredPoster.html"
     // Bat Houses
     images [1] = loadImage("/assets/designAndIllustration/batHouses.png")
 
@@ -42,7 +48,6 @@ function preload(){
     // Write For Blog Post
     images [11] = loadImage("/assets/designAndIllustration/writeForBlogPost.png")
 
-    //
   }
 
 // Setup function
@@ -54,67 +59,73 @@ function setup() {
   // Draw function
     function draw() {
       
+      // FORMATTING
       background(253, 253, 253);
       textFont('Helvetica')
       textSize(gapVar*.75);
       textStyle(BOLD);
       text('Design and Illustration', gapVar, gapVar*2);
 
+      // LOGO PLACEMENT
+      image(natLuskLogo)
+
+      // VARIABLES AND ARRAYS
       let xCoord;
       let whichXLength = [];
       whichXLength [0] = (mouseX >= gapVar && mouseX <= gapVar+sizeVar);
       whichXLength [1] = (mouseX >= gapVar*2 + sizeVar && mouseX <= gapVar*2 +sizeVar*2);
       whichXLength [2] = (mouseX >= gapVar*3 + sizeVar*2 && mouseX <= gapVar*3 + sizeVar*3)
       
-      
+      // IMAGE DRAWING I LOOP
       for(i = 0; i < images.length; i++){
+
+        // sets y coords of first three images
         columnLengths [0] = gapVar*3;
         columnLengths [1] = gapVar*3;
         columnLengths [2] = gapVar*3;
-        if (i%3 == 0){
-            xCoord = gapVar
-        }
-        if (i%3 == 1){
-            xCoord = sizeVar + gapVar*2
-        }
-        if (i%3 == 2){
-            xCoord = gapVar*3 + sizeVar*2
-        }
+
+        // "sorts" images from array into columns
+        if (i%3 == 0) {
+            xCoord = gapVar};
+        if (i%3 == 1) {
+            xCoord = sizeVar + gapVar*2};
+        if (i%3 == 2) {
+            xCoord = gapVar*3 + sizeVar*2};
+        
+        // draws images onto canvas
         image(images[i], xCoord, columnLengths[i], sizeVar, 
             (sizeVar/images[i].width)*images[i].height);
+
+        // keeps track of increasing y coordinates
+        // to make masonry-style image display
         if (i > 2){
-            columnLengths[i] = (columnLengths [i-3] + (sizeVar/images[i-3].width)*images[i-3].height + gapVar)
-           // console.log(columnLengths[i])
-           //(i%3) + Math.floor(i/3)
-        }
+            columnLengths[i] = (columnLengths [i-3] + 
+              (sizeVar/images[i-3].width)*images[i-3].height + gapVar)};
         
-
+        // when cursor hovers over images changes to
+        // custom cursor
         if (mouseX >= xCoord && mouseX <= xCoord + sizeVar && 
-          mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+(sizeVar/images[i].width)*images[i].height) {
-          console.log('yay');
-          cursor(HAND);
+          mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+
+          (sizeVar/images[i].width)*images[i].height) {
+          cursor("/assets/cursor.png");
+
+          // sends user to specific project page when
+          // they click on an image
           if (mouseIsPressed){
-            location.assign(locations[i])
-          }
-        } 
-
+            location.assign(locations[i])}} 
+        
+        // recognizes when cursor is not over an image to 
+        // change back to the regular cursor
         if ((mouseX >=0 && mouseX <= gapVar) // x within first gap
-
-        || (mouseX >= gapVar+sizeVar && mouseX <= gapVar*2 + sizeVar) // x within second gap
-        
-        || (mouseX >= gapVar*2 + sizeVar*2 && mouseX <= gapVar*3 +sizeVar*2) // x within third gap
-        
-        || ((mouseX >= gapVar*3 + sizeVar*3 && mouseX <= gapVar*4 +sizeVar*3)) // x within fourth gap
-        
-        || (whichXLength[i%3] && mouseY >= columnLengths[i] - gapVar && mouseY <= columnLengths[i])
-      ){
-        
-       
-          cursor(ARROW);
-        }
-
-        
-
+        || (mouseX >= gapVar+sizeVar && 
+          mouseX <= gapVar*2 + sizeVar) // x within second gap
+        || (mouseX >= gapVar*2 + sizeVar*2 && 
+          mouseX <= gapVar*3 +sizeVar*2) // x within third gap
+        || ((mouseX >= gapVar*3 + sizeVar*3 
+          && mouseX <= gapVar*4 +sizeVar*3)) // x within fourth gap
+        || (whichXLength[i%3] && mouseY >= columnLengths[i] - gapVar 
+          && mouseY <= columnLengths[i])){
+          cursor(ARROW)};
       }
     }
   
