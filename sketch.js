@@ -11,9 +11,9 @@ let natLuskLogo;
 
 // Loads all graphic images for the page
 function preload(){
-  map = loadImage("/assets/mapJustDots.png")
+  map = loadImage("./assets/mapJustDots.png")
   // map image dimensions: 1247 × 843
-  natLuskLogo = loadImage("/assets/natLuskLogo.png")
+  natLuskLogo = loadImage("./assets/natLuskLogo.png")
 }
 
 // Setup function
