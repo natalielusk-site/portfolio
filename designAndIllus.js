@@ -26,7 +26,7 @@ function preload(){
     images[3] = loadImage("./assets/designAndIllustration/g4UNC.png")
 
     // Findings
-    images[4] = loadImage("./assets/designAndIllustration/orangeShortcake.png")
+    images[4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
 
     // Gem
     images[5] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
