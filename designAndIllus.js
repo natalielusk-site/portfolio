@@ -15,39 +15,28 @@ function preload(){
     // Cornered Poster
     images[0] = loadImage("./assets/designAndIllustration/corneredPoster.png")
     locations [0] = "/designAndIllustration/corneredPoster.html"
-    // Bat Houses
-    images [1] = loadImage("./assets/designAndIllustration/batHouses.png")
+    
+    // SC Halloween Campaign
+    images[1] = loadImage("./assets/designAndIllustration/batHouses.png")
 
-    // WLI Logo
-    images [2] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
+    // WLI
+    images[2] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
 
-    // G4 UNC
-    images [3] = loadImage("./assets/designAndIllustration/g4UNC.png")
+    // Studio Space
+    images[3] = loadImage("./assets/designAndIllustration/g4UNC.png")
 
-    // Orange Shortcake
-    images [4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
+    // Findings
+    images[4] = loadImage("./assets/designAndIllustration/orangeShortcake.png")
 
-    // Currently On Air
-    images [5] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
+    // Gem
+    images[5] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
 
-    // Home Book
-    images [6] = loadImage("./assets/designAndIllustration/homePages2.png")
+    // Orchid Lace
+    images[6] = loadImage("./assets/designAndIllustration/homePages2.png")
 
-    // Creature Feature
-    images [7] = loadImage("./assets/designAndIllustration/creatureFeature1.png")
-
-    // Lace Drawings
-    images [8] = loadImage("./assets/designAndIllustration/laceDrawings2.png")
-
-    // G4 Football Post
-    images [9] = loadImage("./assets/designAndIllustration/g4Post.png")
-
-    // Find Your Center Button
-    images [10] = loadImage("./assets/designAndIllustration/findYourCenter.png")
-
-    // Write For Blog Post
-    images [11] = loadImage("./assets/designAndIllustration/writeForBlogPost.png")
-
+    // System Sampler
+    images[7] = loadImage("./assets/designAndIllustration/findYourCenter.png")
+    
   }
 
 // Setup function
@@ -64,7 +53,7 @@ function setup() {
       textFont('Helvetica')
       textSize(gapVar*.75);
       textStyle(BOLD);
-      text('Design and Illustration', gapVar, gapVar*2);
+      text('Conceptual Art', gapVar, gapVar*2);
 
       // LOGO PLACEMENT
       let logoXCoord = gapVar*3 +sizeVar*2 +(sizeVar-gapVar)
