@@ -26,16 +26,16 @@ function preload(){
     images[3] = loadImage("./assets/designAndIllustration/g4UNC.png")
 
     // Findings
-    images[4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
+   // images[4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
 
     // Gem
-    images[5] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
+    images[4] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
 
     // Orchid Lace
-    images[6] = loadImage("./assets/designAndIllustration/homePages2.png")
+    images[5] = loadImage("./assets/designAndIllustration/homePages2.png")
 
     // System Sampler
-    images[7] = loadImage("./assets/designAndIllustration/findYourCenter.png")
+    images[6] = loadImage("./assets/designAndIllustration/findYourCenter.png")
     
   }
 
