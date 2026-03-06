@@ -8,45 +8,45 @@ let natLuskLogo;
 function preload(){
     
     // Logo
-    natLuskLogo = loadImage("/assets/natLuskLogo.png")
+    natLuskLogo = loadImage("./assets/natLuskLogo.png")
     
     // PORTFOLIO IMAGES
 
     // Cornered Poster
-    images[0] = loadImage("/assets/designAndIllustration/corneredPoster.png")
+    images[0] = loadImage("./assets/designAndIllustration/corneredPoster.png")
     locations [0] = "/designAndIllustration/corneredPoster.html"
     // Bat Houses
-    images [1] = loadImage("/assets/designAndIllustration/batHouses.png")
+    images [1] = loadImage("./assets/designAndIllustration/batHouses.png")
 
     // WLI Logo
-    images [2] = loadImage("/assets/designAndIllustration/WLILetterhead.png")
+    images [2] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
 
     // G4 UNC
-    images [3] = loadImage("/assets/designAndIllustration/g4UNC.png")
+    images [3] = loadImage("./assets/designAndIllustration/g4UNC.png")
 
     // Orange Shortcake
-    images [4] = loadImage("/assets/designAndIllustration/orangeShortcakeThumbnail.png")
+    images [4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
 
     // Currently On Air
-    images [5] = loadImage("/assets/designAndIllustration/currentlyOnAir.png")
+    images [5] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
 
     // Home Book
-    images [6] = loadImage("/assets/designAndIllustration/homePages2.png")
+    images [6] = loadImage("./assets/designAndIllustration/homePages2.png")
 
     // Creature Feature
-    images [7] = loadImage("/assets/designAndIllustration/creatureFeature1.png")
+    images [7] = loadImage("./assets/designAndIllustration/creatureFeature1.png")
 
     // Lace Drawings
-    images [8] = loadImage("/assets/designAndIllustration/laceDrawings2.png")
+    images [8] = loadImage("./assets/designAndIllustration/laceDrawings2.png")
 
     // G4 Football Post
-    images [9] = loadImage("/assets/designAndIllustration/g4Post.png")
+    images [9] = loadImage("./assets/designAndIllustration/g4Post.png")
 
     // Find Your Center Button
-    images [10] = loadImage("/assets/designAndIllustration/findYourCenter.png")
+    images [10] = loadImage("./assets/designAndIllustration/findYourCenter.png")
 
     // Write For Blog Post
-    images [11] = loadImage("/assets/designAndIllustration/writeForBlogPost.png")
+    images [11] = loadImage("./assets/designAndIllustration/writeForBlogPost.png")
 
   }
 
@@ -79,7 +79,7 @@ function setup() {
       // and, if mouse is pressed, sends back to homepage
       if (mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
         && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight){
-          cursor("/assets/cursor.png");
+          cursor("./assets/cursor.png");
           if (mouseIsPressed){
             location.assign("index.html")}}
       if (mouseY>=0 && mouseY<= gapVar*3 &&(!(mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
@@ -124,7 +124,7 @@ function setup() {
         if (mouseX >= xCoord && mouseX <= xCoord + sizeVar && 
           mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+
           (sizeVar/images[i].width)*images[i].height) {
-          cursor("/assets/cursor.png");
+          cursor("./assets/cursor.png");
 
           // sends user to specific project page when
           // they click on an image

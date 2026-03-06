@@ -8,34 +8,34 @@ let natLuskLogo;
 function preload(){
     
     // Logo
-    natLuskLogo = loadImage("/assets/natLuskLogo.png")
+    natLuskLogo = loadImage("./assets/natLuskLogo.png")
     
     // PORTFOLIO IMAGES
 
     // Accumulation
-    images[0] = loadImage("/assets/conceptualArt/accumulation.png")
+    images[0] = loadImage("./assets/conceptualArt/accumulation.png")
     locations [0] = "/designAndIllustration/corneredPoster.html"
     
     // Mon Chair
-    images[1] = loadImage("/assets/conceptualArt/monChair.png")
+    images[1] = loadImage("./assets/conceptualArt/monChair.png")
 
     // Satisfying
-    images[2] = loadImage("/assets/conceptualArt/soSatisfying.png")
+    images[2] = loadImage("./assets/conceptualArt/soSatisfying.png")
 
     // Studio Space
-    images[3] = loadImage("/assets/conceptualArt/studioSpace.png")
+    images[3] = loadImage("./assets/conceptualArt/studioSpace.png")
 
     // Findings
-    images[4] = loadImage("/assets/conceptualArt/findings3.png")
+    images[4] = loadImage("./assets/conceptualArt/findings3.png")
 
     // Gem
-    images[5] = loadImage("/assets/conceptualArt/gem.png")
+    images[5] = loadImage("./assets/conceptualArt/gem.png")
 
     // Orchid Lace
-    images[6] = loadImage("/assets/conceptualArt/orchidLace2.png")
+    images[6] = loadImage("./assets/conceptualArt/orchidLace2.png")
 
     // System Sampler
-    images[7] = loadImage("/assets/conceptualArt/systemSampler1.png")
+    images[7] = loadImage("./assets/conceptualArt/systemSampler1.png")
     
   }
 
@@ -68,7 +68,7 @@ function setup() {
       // and, if mouse is pressed, sends back to homepage
       if (mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
         && mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight){
-          cursor("/assets/cursor.png");
+          cursor("./assets/cursor.png");
           if (mouseIsPressed){
             location.assign("index.html")}}
       if (mouseY>=0 && mouseY<= gapVar*3 &&(!(mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
@@ -113,7 +113,7 @@ function setup() {
         if (mouseX >= xCoord && mouseX <= xCoord + sizeVar && 
           mouseY >= columnLengths[i] && mouseY <= columnLengths[i]+
           (sizeVar/images[i].width)*images[i].height) {
-          cursor("/assets/cursor.png");
+          cursor("./assets/cursor.png");
 
           // sends user to specific project page when
           // they click on an image
