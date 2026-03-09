@@ -14,6 +14,9 @@ function preload(){
   map = loadImage("./assets/mapJustDots.png")
   // map image dimensions: 1247 × 843
   natLuskLogo = loadImage("./assets/natLuskLogo.png")
+
+  // FOnt
+  font = loadFont('./assets/geist.ttf')
 }
 
 // Setup function
@@ -62,7 +65,7 @@ function draw() {
 
   // Makes the text blue
   fill('blue')
-  
+  textFont(font)
   // Draws the "conceptual art" text
   let conceptualArtX = mapCornerXCoord+(mapScreenWidthRatio/5.04);
   let conceptualArtY = mapCornerYCoord+(mapScreenHeightRatio/1.3)

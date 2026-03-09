@@ -9,7 +9,10 @@ function preload(){
     
     // Logo
     natLuskLogo = loadImage("./assets/natLuskLogo.png")
-    
+
+    // Font
+    font = loadFont('./assets/geist.ttf')
+
     // PORTFOLIO IMAGES
 
     // Cornered Poster
@@ -50,7 +53,7 @@ function setup() {
       
       // FORMATTING
       background(253, 253, 253);
-      textFont('Helvetica')
+      textFont(font)
       textSize(gapVar*.75);
       textStyle(BOLD);
       text('Design and Illustration', gapVar, gapVar*2);

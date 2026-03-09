@@ -10,6 +10,9 @@ function preload(){
     // Logo
     natLuskLogo = loadImage("./assets/natLuskLogo.png")
     
+    // Font
+    font = loadFont('./assets/geist.ttf')
+
     // PORTFOLIO IMAGES
 
     // Accumulation
@@ -50,7 +53,7 @@ function setup() {
       
       // FORMATTING
       background(253, 253, 253);
-      textFont('Helvetica')
+      textFont(font)
       textSize(gapVar*.75);
       textStyle(BOLD);
       text('Conceptual Art', gapVar, gapVar*2);
