@@ -17,7 +17,7 @@ function preload(){
 
     // Cornered Poster
     images[0] = loadImage("./assets/designAndIllustration/corneredPoster.png")
-    locations [0] = "/designAndIllustration/corneredPoster.html"
+    locations [0] = "./designAndIllustration/corneredPoster.html"
     
     // SC Halloween Campaign
     images[1] = loadImage("./assets/designAndIllustration/batHouses.png")
