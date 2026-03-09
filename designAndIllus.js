@@ -53,7 +53,7 @@ function setup() {
       textFont('Helvetica')
       textSize(gapVar*.75);
       textStyle(BOLD);
-      text('Conceptual Art', gapVar, gapVar*2);
+      text('Design and Illustration', gapVar, gapVar*2);
 
       // LOGO PLACEMENT
       let logoXCoord = gapVar*3 +sizeVar*2 +(sizeVar-gapVar)
