@@ -54,7 +54,7 @@ let overLogo = mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
   
   // Creates coordinates for the top left corner of the
   // map so that it will be centered in the window
-  mapCornerXCoord = (window.innerWidth-mapScreenWidthRatio)/2
+  mapCornerXCoord = (window.innerWidth-mapScreenWidthRatio)/2-gapVar/2
   mapCornerYCoord = (window.innerHeight-mapScreenHeightRatio)/2
  
   // Fills the background with hex code #e8d11b

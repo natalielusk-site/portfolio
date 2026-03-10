@@ -12,6 +12,7 @@ let gapVar = sizeVar/4
 let halfScreen = window.innerWidth/2;
 let imageWidth = sizeVar + gapVar
 let mainTypeSize = gapVar*.3
+let pageLength = sizeVar*4
 
 // image and text
 let natLuskLogo;
@@ -34,7 +35,7 @@ function preload(){
 // SETUP FUNCTION
 function setup() {
     // draws canvas the size of the window
-    createCanvas(window.innerWidth, window.innerHeight*3);
+    createCanvas(window.innerWidth, pageLength);
     }
 
 // DRAW FUNCTION
@@ -52,7 +53,7 @@ function draw(){
     background(253, 253, 253);
     textFont(font)
     textSize(mainTypeSize);
-    fill(230, 230, 230)
+    fill('Blue')
 
     // back to previous page button
     let justifyRight = logoXCoord + logoWidth
@@ -63,7 +64,7 @@ function draw(){
     if (mouseX >= backButtonX && mouseX <= backButtonX+backButton.w +gapVar/7
          && mouseY >= backButtonY-backButton.h && mouseY <= backButtonY){
             fill(232, 209, 27)
-            text('← Design and Illustration', justifyRight-backButton.w-(gapVar/10), gapVar*2)
+            text('← Design and Illustration', justifyRight-backButton.w-(gapVar/9), gapVar*2)
             cursor("./assets/cursor.png")
             if (mouseIsPressed){
                 location.assign("../designAndIllustration.html")
@@ -112,7 +113,7 @@ function draw(){
 
 // WINDOW RESIZE FUNCTION
 function windowResized(){
-    resizeCanvas(window.innerWidth, window.innerHeight*3)
+    resizeCanvas(window.innerWidth, pageLength)
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
     halfScreen = window.innerWidth/2;

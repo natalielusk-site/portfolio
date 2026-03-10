@@ -5,6 +5,7 @@ let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
 let natLuskLogo;
 let yellowLogo;
+let pageLength = sizeVar*6
 
 function preload(){
     
@@ -24,28 +25,36 @@ function preload(){
     images[1] = loadImage("./assets/designAndIllustration/batHouses.png")
 
     // WLI
-    images[2] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
+    images[2] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
 
     // Studio Space
     images[3] = loadImage("./assets/designAndIllustration/g4UNC.png")
 
-    // Findings
-   // images[4] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
-
-    // Gem
+    // Currently on Air
     images[4] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
 
-    // Orchid Lace
-    images[5] = loadImage("./assets/designAndIllustration/homePages2.png")
+    // Lace Drawings
+    images[5] = loadImage("./assets/designAndIllustration/laceDrawings2.png")
+  
+    // WLI
+    images[6] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
 
-    // System Sampler
-    images[6] = loadImage("./assets/designAndIllustration/findYourCenter.png")
+    // Home Pages
+    images[7] = loadImage("./assets/designAndIllustration/homePages2.png")
+
+    // Sketchbook
+    images[8] = loadImage("./assets/designAndIllustration/sketchbook.png")
+
+    images[9] = loadImage("./assets/designAndIllustration/findYourCenter.png")
+
+    images [10] = loadImage("./assets/designAndIllustration/prideProm.png")
     
   }
 
+
 // Setup function
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight*3);
+    createCanvas(window.innerWidth, pageLength);
     }
     
   
@@ -137,8 +146,14 @@ function setup() {
           && mouseX <= gapVar*4 +sizeVar*3)) // x within fourth gap
         || (whichXLength[i%3] && mouseY >= columnLengths[i] - gapVar 
           && mouseY <= columnLengths[i])){
-          cursor(ARROW)};
+          cursor(ARROW)}
       }
+
+      
+      //let canvasLength = columnLengths[columnLengths.length-1]+gapVar
+      //resizeCanvas(window.innerWidth, canvasLength, true)
+      //console.log(canvasLength)
+
       if (overLogo){
         image(yellowLogo, logoXCoord, logoYCoord, logoWidth, logoHeight)
        }
@@ -146,7 +161,7 @@ function setup() {
   
   // Resizes the canvas in case the window is resized
   function windowResized(){
-    resizeCanvas(window.innerWidth, window.innerHeight*3)
+    resizeCanvas(window.innerWidth, pageLength)
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
   }

@@ -5,6 +5,7 @@ let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
 let natLuskLogo;
 let yellowLogo;
+let pageLength = sizeVar*5
 
 function preload(){
     
@@ -46,7 +47,7 @@ function preload(){
 
 // Setup function
 function setup() {
-    createCanvas(window.innerWidth, window.innerHeight*3);
+    createCanvas(window.innerWidth, pageLength);
     }
     
   
@@ -147,7 +148,7 @@ function setup() {
   
   // Resizes the canvas in case the window is resized
   function windowResized(){
-    resizeCanvas(window.innerWidth, window.innerHeight*3)
+    resizeCanvas(window.innerWidth, pageLength)
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
   }
