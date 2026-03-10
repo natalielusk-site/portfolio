@@ -4,12 +4,13 @@ let locations = [];
 let sizeVar = window.innerWidth/4
 let gapVar = sizeVar/4
 let natLuskLogo;
+let yellowLogo;
 
 function preload(){
     
     // Logo
     natLuskLogo = loadImage("./assets/natLuskLogo.png")
-
+    yellowLogo = loadImage("./assets/yellowLogo.png")
     // Font
     font = loadFont('./assets/geist.ttf')
 
@@ -54,7 +55,7 @@ function setup() {
       // FORMATTING
       background(253, 253, 253);
       textFont(font)
-      textSize(gapVar*.75);
+      textSize(gapVar*.33);
       textStyle(BOLD);
       text('Design and Illustration', gapVar, gapVar*2);
 
@@ -64,6 +65,8 @@ function setup() {
       let logoWidth = gapVar*.75
       let logoHeight = (logoWidth/natLuskLogo.width)*natLuskLogo.height
       image(natLuskLogo, logoXCoord, logoYCoord, logoWidth, logoHeight);
+      let overLogo = mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+&& mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight
 
       // HOME BUTTON
 
@@ -136,6 +139,9 @@ function setup() {
           && mouseY <= columnLengths[i])){
           cursor(ARROW)};
       }
+      if (overLogo){
+        image(yellowLogo, logoXCoord, logoYCoord, logoWidth, logoHeight)
+       }
     }
   
   // Resizes the canvas in case the window is resized

@@ -15,12 +15,14 @@ let mainTypeSize = gapVar*.3
 
 // image and text
 let natLuskLogo;
+let yellowLogo;
 let font;
 
 // PRELOAD FUNCTION
 function preload(){
     // logo preload
     natLuskLogo = loadImage("./assets/natLuskLogo.png");
+    yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
     images[0] = loadImage("./assets/corneredPoster.png")
@@ -43,6 +45,8 @@ function draw(){
     let logoYCoord = gapVar*.5
     let logoWidth = gapVar*.75
     let logoHeight = (logoWidth/natLuskLogo.width)*natLuskLogo.height
+    let overLogo = mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
+&& mouseY >= logoYCoord && mouseY <= logoYCoord + logoHeight
     
     // formatting
     background(253, 253, 253);
@@ -101,6 +105,9 @@ function draw(){
             imageYValues[i] = imageYValues[i-1]+imageHeight+gapVar
         }
     }
+    if (overLogo){
+        image(yellowLogo, logoXCoord, logoYCoord, logoWidth, logoHeight)
+       }
 }
 
 // WINDOW RESIZE FUNCTION
