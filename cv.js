@@ -66,7 +66,7 @@ if(overDownloadCv){
     fill(232, 209, 27)
     text('Download CV', gapVar, gapVar*2)
     if (mouseIsPressed){
-        window.location.href = "google.com"
+        window.location.href = "https://drive.google.com/file/d/1wQzcqr2j4JnZeq-AlQdD3p9AElcieMrd/view?usp=sharing"
     }
 }
 }
