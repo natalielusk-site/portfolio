@@ -89,7 +89,7 @@ let overLogo = mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
   // Draws the "resume" text
   let resumeX = mapCornerXCoord+(mapScreenWidthRatio/1.22);
   let resumeY = mapCornerYCoord+(mapScreenHeightRatio/1.08);
-  text('Resume', resumeX, 
+  text('CV', resumeX, 
   resumeY);
   let resumeBound = font.textBounds('Resume', resumeX, resumeY)
 
@@ -128,11 +128,11 @@ let overLogo = mouseX >=logoXCoord && mouseX<= logoXCoord + logoWidth
   mouseY <= resumeY && mouseY >= resumeY -resumeBound.h
  ){
   fill(232, 209, 27)
-  text('Resume', resumeX, 
+  text('CV', resumeX, 
   resumeY);
   
   if (mouseIsPressed){
-    console.log('yas')
+    location.assign("cv.html")
   }
  }
 
