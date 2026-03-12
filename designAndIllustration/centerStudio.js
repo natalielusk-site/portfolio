@@ -12,7 +12,7 @@ let gapVar = sizeVar/4
 let halfScreen = window.innerWidth/2;
 let imageWidth = sizeVar + gapVar
 let mainTypeSize = gapVar*.3
-let pageLength = sizeVar*4
+let pageLength = sizeVar*8
 
 // image and text
 let natLuskLogo;
@@ -26,7 +26,9 @@ function preload(){
     yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
-    images[0] = loadImage("./assets/corneredPoster.png")
+    images[0] = loadImage("./assets/studioCenter.png")
+    images [1] = loadImage("./assets/currentlyOnAir.png")
+
 
     // font preload
     font = loadFont('./assets/geist.ttf')
@@ -80,11 +82,11 @@ function draw(){
     let projectX = gapVar*2+imageWidth
 
     let workTitle = font.textBounds('< Design and Illustration', gapVar, gapVar*2)
-    text('Cornered Exhibition Poster', projectX, gapVar*3+gapVar*.3)
+    text('Studio Center Signage', projectX, gapVar*3+gapVar*.3)
 
     textSize(mainTypeSize*.75)
 
-    text("I was tasked with designing a poster to advertise a duo exhibition at FSU's FAB Gallery that featured my and artist Alex Davidoff’s work. It was important that the product reflected both the theme of the show and our individual art practices. The left wallpaper is my design, and the right was created by Alex.", 
+    text("These simple, typographically-focused emblems became vinyl and acrylic signs in the podcast recording studio at FSU’s Center for Leadership and Service. The objective of this project was to create a sense of playfulness and functionality within the space while contributing to is developing brand identity.", 
         projectX, gapVar*3+(gapVar*.3)*3, gapVar*6)
 
     // draws logo on canvas
@@ -103,7 +105,7 @@ function draw(){
 
         // keeps track of the length of previous images to determine y cord
         if (i > 0){
-            imageYValues[i] = imageYValues[i-1]+imageHeight+gapVar
+            imageYValues[i] = imageYValues[i-1]+((imageWidth/images[i-1].width)*images[i-1].height)+gapVar
         }
     }
     if (overLogo){
@@ -117,7 +119,7 @@ function windowResized(){
     
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
-    pageLength = sizeVar*4
+    pageLength = sizeVar*8
     resizeCanvas(window.innerWidth, pageLength)
     halfScreen = window.innerWidth/2;
     imageWidth = sizeVar + gapVar

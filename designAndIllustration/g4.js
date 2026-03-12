@@ -26,7 +26,9 @@ function preload(){
     yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
-    images[0] = loadImage("./assets/corneredPoster.png")
+    images[0] = loadImage("./assets/g4Poster.png")
+    images[1] = loadImage("./assets/g4Post.png")
+    images[2] = loadImage("./assets/g4UNC.png")
 
     // font preload
     font = loadFont('./assets/geist.ttf')
@@ -80,11 +82,11 @@ function draw(){
     let projectX = gapVar*2+imageWidth
 
     let workTitle = font.textBounds('< Design and Illustration', gapVar, gapVar*2)
-    text('Cornered Exhibition Poster', projectX, gapVar*3+gapVar*.3)
+    text('G4 Recycling Program Graphics', projectX, gapVar*3+gapVar*.3)
 
     textSize(mainTypeSize*.75)
 
-    text("I was tasked with designing a poster to advertise a duo exhibition at FSU's FAB Gallery that featured my and artist Alex Davidoff’s work. It was important that the product reflected both the theme of the show and our individual art practices. The left wallpaper is my design, and the right was created by Alex.", 
+    text("I created multiple posters and social media graphics to promote engagement with FSU’s sporting event recycling program, G4. The products are designed to invoke game day nostalgia and the spirit of FSU athletics while also effectively communicating meeting times, locations, and the sign-up process.", 
         projectX, gapVar*3+(gapVar*.3)*3, gapVar*6)
 
     // draws logo on canvas
@@ -100,10 +102,11 @@ function draw(){
         let imageHeight = (imageWidth/images[i].width)*images[i].height;
         // draws image
         image(images[i], gapVar, imageYValues[i], imageWidth, imageHeight)
+        // draws image
 
         // keeps track of the length of previous images to determine y cord
         if (i > 0){
-            imageYValues[i] = imageYValues[i-1]+imageHeight+gapVar
+            imageYValues[i] = imageYValues[i-1]+((imageWidth/images[i-1].width)*images[i-1].height)+gapVar
         }
     }
     if (overLogo){

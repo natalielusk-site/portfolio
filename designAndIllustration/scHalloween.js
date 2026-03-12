@@ -12,7 +12,7 @@ let gapVar = sizeVar/4
 let halfScreen = window.innerWidth/2;
 let imageWidth = sizeVar + gapVar
 let mainTypeSize = gapVar*.3
-let pageLength = sizeVar*4
+let pageLength = sizeVar*8
 
 // image and text
 let natLuskLogo;
@@ -26,7 +26,10 @@ function preload(){
     yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
-    images[0] = loadImage("./assets/corneredPoster.png")
+    images[0] = loadImage("./assets/scHall3.png")
+    images [1] = loadImage("./assets/scHall1.png")
+    images [2] = loadImage("./assets/scHall2.png")
+    images [3] = loadImage ("./assets/batHouses.png")
 
     // font preload
     font = loadFont('./assets/geist.ttf')
@@ -80,11 +83,11 @@ function draw(){
     let projectX = gapVar*2+imageWidth
 
     let workTitle = font.textBounds('< Design and Illustration', gapVar, gapVar*2)
-    text('Cornered Exhibition Poster', projectX, gapVar*3+gapVar*.3)
+    text('Sustainable Campus Halloween Campaign', projectX, gapVar*3+gapVar*.3)
 
     textSize(mainTypeSize*.75)
 
-    text("I was tasked with designing a poster to advertise a duo exhibition at FSU's FAB Gallery that featured my and artist Alex Davidoff’s work. It was important that the product reflected both the theme of the show and our individual art practices. The left wallpaper is my design, and the right was created by Alex.", 
+    text("During the month of October, FSU Sustainable Campus launched a Halloween-themed social media campaign to leverage student interest in the aesthetics of the holiday to promote office initiatives. Throughout the campaign, I designed a cohesive set of graphics that combined visual interest with informational clarity. ", 
         projectX, gapVar*3+(gapVar*.3)*3, gapVar*6)
 
     // draws logo on canvas
@@ -117,7 +120,7 @@ function windowResized(){
     
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
-    pageLength = sizeVar*4
+    pageLength = sizeVar*8
     resizeCanvas(window.innerWidth, pageLength)
     halfScreen = window.innerWidth/2;
     imageWidth = sizeVar + gapVar

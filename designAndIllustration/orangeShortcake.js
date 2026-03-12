@@ -12,7 +12,7 @@ let gapVar = sizeVar/4
 let halfScreen = window.innerWidth/2;
 let imageWidth = sizeVar + gapVar
 let mainTypeSize = gapVar*.3
-let pageLength = sizeVar*4
+let pageLength = sizeVar*8
 
 // image and text
 let natLuskLogo;
@@ -26,7 +26,12 @@ function preload(){
     yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
-    images[0] = loadImage("./assets/corneredPoster.png")
+    images[0] = loadImage("./assets/osc.png")
+    images [1] = loadImage("./assets/osc1.png")
+    images [2] = loadImage("./assets/osc2.png")
+    images [3] = loadImage ("./assets/osc3.png")
+    images [4] = loadImage ("./assets/osc4.png")
+    images [5] = loadImage ("./assets/osc5.png")
 
     // font preload
     font = loadFont('./assets/geist.ttf')
@@ -80,11 +85,11 @@ function draw(){
     let projectX = gapVar*2+imageWidth
 
     let workTitle = font.textBounds('< Design and Illustration', gapVar, gapVar*2)
-    text('Cornered Exhibition Poster', projectX, gapVar*3+gapVar*.3)
+    text('Orange Shortcake Artist Book', projectX, gapVar*3+gapVar*.3)
 
     textSize(mainTypeSize*.75)
 
-    text("I was tasked with designing a poster to advertise a duo exhibition at FSU's FAB Gallery that featured my and artist Alex Davidoff’s work. It was important that the product reflected both the theme of the show and our individual art practices. The left wallpaper is my design, and the right was created by Alex.", 
+    text("Orange Shortcake is a sculptural book that morphs from an image of an orange, to a recipe booklet, to a cake when manipulated by a reader. Images in the project are taken from antique, public domain catalogs and recipes and digitally reassembled. The final work was created by laser cutting and engraving.", 
         projectX, gapVar*3+(gapVar*.3)*3, gapVar*6)
 
     // draws logo on canvas
@@ -117,7 +122,7 @@ function windowResized(){
     
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
-    pageLength = sizeVar*4
+    pageLength = sizeVar*8
     resizeCanvas(window.innerWidth, pageLength)
     halfScreen = window.innerWidth/2;
     imageWidth = sizeVar + gapVar

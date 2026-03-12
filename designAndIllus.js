@@ -23,31 +23,41 @@ function preload(){
     
     // SC Halloween Campaign
     images[1] = loadImage("./assets/designAndIllustration/batHouses.png")
+    locations [1] = "./designAndIllustration/scHalloween.html"
 
     // WLI
     images[2] = loadImage("./assets/designAndIllustration/orangeShortcakeThumbnail.png")
+    locations [2] = "./designAndIllustration/orangeShortcake.html"
 
     // Studio Space
     images[3] = loadImage("./assets/designAndIllustration/g4UNC.png")
+    locations [3] = "./designAndIllustration/g4.html"
 
     // Currently on Air
     images[4] = loadImage("./assets/designAndIllustration/currentlyOnAir.png")
+    locations [4] = "./designAndIllustration/centerStudio.html"
 
     // Lace Drawings
     images[5] = loadImage("./assets/designAndIllustration/laceDrawings2.png")
+    locations [5] = "./designAndIllustration/laceDrawings.html"
   
     // WLI
     images[6] = loadImage("./assets/designAndIllustration/WLILetterhead.png")
+    locations [6] = "./designAndIllustration/wli.html"
 
     // Home Pages
     images[7] = loadImage("./assets/designAndIllustration/homePages2.png")
+    locations [7] = "./designAndIllustration/homeBook.html"
 
     // Sketchbook
     images[8] = loadImage("./assets/designAndIllustration/sketchbook.png")
+    locations [8] = "./designAndIllustration/sketchbook.html"
 
     images[9] = loadImage("./assets/designAndIllustration/findYourCenter.png")
+    locations [9] = "./designAndIllustration/centerButton.html"
 
     images [10] = loadImage("./assets/designAndIllustration/prideProm.png")
+    locations [10] = "./designAndIllustration/prideProm.html"
     
   }
 

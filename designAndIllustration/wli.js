@@ -19,6 +19,10 @@ let natLuskLogo;
 let yellowLogo;
 let font;
 
+//
+let projectName = 'WLI Logo Package'
+let projectDesc = "I was tasked with a redesign of the brand identity for the Women’s Leadership Institute at Florida State University. Incorporating requests for color palette and motif from the Institute’s coordinators, I developed a logo system that is flexible across document types, memorably simple, and true to the spirit of the event series."
+
 // PRELOAD FUNCTION
 function preload(){
     // logo preload
@@ -26,7 +30,8 @@ function preload(){
     yellowLogo = loadImage("./assets/yellowLogo.png")
 
     // project images preload
-    images[0] = loadImage("./assets/corneredPoster.png")
+    images[0] = loadImage("./assets/wliCircle.png")
+    images[1] = loadImage("./assets/WLILetterhead.png")
 
     // font preload
     font = loadFont('./assets/geist.ttf')
@@ -80,11 +85,11 @@ function draw(){
     let projectX = gapVar*2+imageWidth
 
     let workTitle = font.textBounds('< Design and Illustration', gapVar, gapVar*2)
-    text('Cornered Exhibition Poster', projectX, gapVar*3+gapVar*.3)
+    text(projectName, projectX, gapVar*3+gapVar*.3)
 
     textSize(mainTypeSize*.75)
 
-    text("I was tasked with designing a poster to advertise a duo exhibition at FSU's FAB Gallery that featured my and artist Alex Davidoff’s work. It was important that the product reflected both the theme of the show and our individual art practices. The left wallpaper is my design, and the right was created by Alex.", 
+    text(projectDesc, 
         projectX, gapVar*3+(gapVar*.3)*3, gapVar*6)
 
     // draws logo on canvas
@@ -100,10 +105,11 @@ function draw(){
         let imageHeight = (imageWidth/images[i].width)*images[i].height;
         // draws image
         image(images[i], gapVar, imageYValues[i], imageWidth, imageHeight)
+        // draws image
 
         // keeps track of the length of previous images to determine y cord
         if (i > 0){
-            imageYValues[i] = imageYValues[i-1]+imageHeight+gapVar
+            imageYValues[i] = imageYValues[i-1]+((imageWidth/images[i-1].width)*images[i-1].height)+gapVar
         }
     }
     if (overLogo){
