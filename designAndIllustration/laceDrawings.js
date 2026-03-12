@@ -12,7 +12,7 @@ let gapVar = sizeVar/4
 let halfScreen = window.innerWidth/2;
 let imageWidth = sizeVar + gapVar
 let mainTypeSize = gapVar*.3
-let pageLength = sizeVar*8
+let pageLength = sizeVar*7.5
 
 // image and text
 let natLuskLogo;
@@ -133,7 +133,7 @@ function windowResized(){
     
     sizeVar = window.innerWidth/4
     gapVar = sizeVar/4
-    pageLength = sizeVar*8
+    pageLength = sizeVar*7.5
     resizeCanvas(window.innerWidth, pageLength)
     halfScreen = window.innerWidth/2;
     imageWidth = sizeVar + gapVar
