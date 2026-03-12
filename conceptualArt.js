@@ -20,28 +20,35 @@ function preload(){
 
     // Accumulation
     images[0] = loadImage("./assets/conceptualArt/accumulation.png")
-    locations [0] = "/designAndIllustration/corneredPoster.html"
+    locations [0] = "./conceptualArt/accumulation.html"
     
     // Mon Chair
     images[1] = loadImage("./assets/conceptualArt/monChair.png")
+    locations [1] = "./conceptualArt/monChair.html"
 
     // Satisfying
     images[2] = loadImage("./assets/conceptualArt/soSatisfying.png")
+    locations [2] = "./conceptualArt/satisfying.html"
 
     // Studio Space
     images[3] = loadImage("./assets/conceptualArt/studioSpace.png")
+    locations [3] = "./conceptualArt/experiments.html"
 
     // Findings
     images[4] = loadImage("./assets/conceptualArt/findings3.png")
+    locations [4] = "./conceptualArt/findingsII.html"
 
     // Gem
     images[5] = loadImage("./assets/conceptualArt/gem.png")
+    locations [5] = "./conceptualArt/findingsI.html"
 
     // Orchid Lace
     images[6] = loadImage("./assets/conceptualArt/orchidLace2.png")
+    locations [6] = "./conceptualArt/rootsFlowers.html"
 
     // System Sampler
     images[7] = loadImage("./assets/conceptualArt/systemSampler1.png")
+    locations [7] = "./conceptualArt/systemSampler.html"
     
   }
 
