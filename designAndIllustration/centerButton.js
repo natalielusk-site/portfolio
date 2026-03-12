@@ -70,12 +70,10 @@ function draw(){
          && mouseY >= backButtonY-backButton.h && mouseY <= backButtonY){
             fill(232, 209, 27)
             text('← Design and Illustration', justifyRight-backButton.w-(gapVar/9), gapVar*2)
-            cursor("./assets/cursor.png")
+            //cursor("./assets/cursor.png")
             if (mouseIsPressed){
                 location.assign("../designAndIllustration.html")
             }
-        } else {
-            cursor(ARROW)
         }
 
     // reformats to black text
@@ -114,7 +112,16 @@ function draw(){
     }
     if (overLogo){
         image(yellowLogo, logoXCoord, logoYCoord, logoWidth, logoHeight)
+        if(mouseIsPressed){
+            location.assign("../index.html")
+        }
        }
+       let overBackButton = mouseX >= backButtonX && mouseX <= backButtonX+backButton.w +gapVar/7 && mouseY >= backButtonY-backButton.h && mouseY <= backButtonY
+    if (overBackButton || overLogo){
+        cursor("./assets/cursor.png")
+    }else{
+        cursor(ARROW)
+    }
 }
 
 // WINDOW RESIZE FUNCTION

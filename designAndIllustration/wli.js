@@ -114,7 +114,16 @@ function draw(){
     }
     if (overLogo){
         image(yellowLogo, logoXCoord, logoYCoord, logoWidth, logoHeight)
+        if(mouseIsPressed){
+            location.assign("../index.html")
+        }
        }
+       let overBackButton = mouseX >= backButtonX && mouseX <= backButtonX+backButton.w +gapVar/7 && mouseY >= backButtonY-backButton.h && mouseY <= backButtonY
+    if (overBackButton || overLogo){
+        cursor("./assets/cursor.png")
+    }else{
+        cursor(ARROW)
+    }
 }
 
 // WINDOW RESIZE FUNCTION
