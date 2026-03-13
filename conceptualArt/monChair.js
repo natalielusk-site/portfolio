@@ -32,7 +32,7 @@ function preload(){
     // project images preload
     images[0] = loadImage("./assets/monChair1.png")
     images[1] = loadImage("./assets/monChair2.png")
-    images[2] = loadImage("./assets/monchair3.png")
+    images[2] = loadImage("./assets/monChair3.png")
     images[3] = loadImage("./assets/monChair4.png")
     images[4] = loadImage("./assets/monChair.png")
 
