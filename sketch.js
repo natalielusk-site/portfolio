@@ -219,6 +219,15 @@ let verticalMargins = window.innerWidth*.065
 let spaceBetweenThumbnails = window.innerWidth*.03
 let thumbnailWidth = window.innerWidth*.12
 let thumbnailY = window.innerHeight*.53
+  // natalie lusk name
+  let natalieLuskNameY;
+  let natalieLuskNameH;
+  let natalieLuskNameW;
+
+// other images to load
+let natalieLuskName;
+let natLuskStampLogo;
+let limeNatLuskStampLogo;
 
 
 // PRELOAD FUNCTION
@@ -237,7 +246,7 @@ function preload(){
   portfolioCategoryPages[2] = "./social.html"
   portfolioCategoryPages[3] = "./merch.html"
   portfolioCategoryPages[4] = "./branding.html"
-  portfolioCategoryPages[0] = "./illustration.html"
+  portfolioCategoryPages[5] = "./illustration.html"
   // thumbnail titles
   thumbnailTitles[0] = "Print";
   thumbnailTitles[1] = "Digital";
@@ -247,8 +256,12 @@ function preload(){
   thumbnailTitles[5] = "Illustration";
   // fonts:
   geist = loadFont('./assets/geist.ttf')
-  //variables
+  // variables
   thumbnailX[0] = verticalMargins
+  // other images
+  natalieLuskName = loadImage("./assets/natalieLuskName.png")
+  natLuskStampLogo = loadImage("./assets/natLuskStampLogo.png")
+  limeNatLuskStampLogo = loadImage("./assets/limeNatLuskStampLogo.png")
 }
 
 // SETUP FUNCTION
@@ -264,15 +277,15 @@ function setup() {
 
 // DRAW FUNCTION
 function draw() {
+
   // text settings
   textStyle(BOLD)
   textFont(geist)
   textSize(window.innerWidth * .013)
   textAlign(LEFT, TOP)
-
   let thumbnailTitleY = thumbnailY + thumbnailWidth + window.innerHeight * .023
 
-  // background
+  // background color
   background(253, 253, 253)
 
   // check whether ANY thumbnail is being hovered
@@ -302,9 +315,11 @@ function draw() {
       thumbnailWidth
     )
 
-    // title color
+    // thumbnail cursor interactivity
     if (hoveringThumbnail) {
-      fill(0, 82, 249)
+      // changes text color
+      fill(217, 232, 17)
+      // draws border around thumbnail image
       noStroke();
       rect(
         thumbnailX[i]-window.innerWidth*.001,
@@ -322,6 +337,10 @@ function draw() {
       fill(0, 0, 0)
     }
 
+    if (hoveringThumbnail && mouseIsPressed){
+      location.assign(portfolioCategoryPages[i])
+    }
+
     // title
     text(
       thumbnailTitles[i],
@@ -334,7 +353,7 @@ function draw() {
       thumbnailX[i] + spaceBetweenThumbnails + thumbnailWidth
   }
 
-  // cursor
+  // cursor change
   if (hoveringAnyThumbnail) {
     cursor("./assets/cursor.png")
   } else {
@@ -343,9 +362,7 @@ function draw() {
 
   // biography paragraph
   fill(0)
-
   let bio = "is a graphic designer with over two years of professional experience and a B.A. in studio art. Her work is versatile; design outcomes range from imaginative to sleek, minimalist to maximalist. She prioritizes clarity of message, expressing the spirit of a brand, and a joyful approach to detail in the design process."
-
   text(
     bio,
     verticalMargins,
@@ -353,14 +370,77 @@ function draw() {
     window.innerWidth * .56,
     window.innerHeight * .42
   )
+
+  // full name image
+  natalieLuskNameY = (window.innerHeight * .327) - window.innerHeight*.075
+  natalieLuskNameH = natalieLuskName.height*(((window.innerWidth * .56)/2)/natalieLuskName.width)
+  natalieLuskNameW = (window.innerWidth * .56)/2
+  image
+  (natalieLuskName,
+    verticalMargins,
+    natalieLuskNameY,
+    natalieLuskNameW,
+    natalieLuskNameH)
+
+// logo stuff
+natLuskStampLogoW = verticalMargins*.75
+image (
+  natLuskStampLogo,
+  window.innerWidth-verticalMargins - natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW
+)
+if (
+  mouseX >= window.innerWidth-verticalMargins - natLuskStampLogoW
+  && mouseX <= window.innerWidth-verticalMargins
+  && mouseY >= natLuskStampLogoW
+  && mouseY <= natLuskStampLogoW*2
+){
+  
+ cursor("./assets/cursor.png")
+ image (
+  limeNatLuskStampLogo,
+  window.innerWidth-verticalMargins - natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW
+)
+  } else {
+    cursor(ARROW)
+    image (
+  natLuskStampLogo,
+  window.innerWidth-verticalMargins - natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW,
+  natLuskStampLogoW
+)
+  }
+
+  if (
+  mouseX >= window.innerWidth-verticalMargins - natLuskStampLogoW
+  && mouseX <= window.innerWidth-verticalMargins
+  && mouseY >= natLuskStampLogoW
+  && mouseY <= natLuskStampLogoW*2
+  && mouseIsPressed){
+
+location.assign("index.html")
+  }
+
+
 }
 
 // WINDOW RESIZE FUNCTION
 function windowResized(){
+
   resizeCanvas(window.innerWidth, window.innerHeight)
   verticalMargins = window.innerWidth*.065
   spaceBetweenThumbnails = window.innerWidth*.03
   thumbnailWidth = window.innerWidth*.12
   thumbnailY = window.innerHeight*.53
   thumbnailX[0] = verticalMargins
+  natalieLuskNameY = (window.innerHeight * .327) - window.innerHeight*.11
+  natalieLuskNameH = window.innerHeight*.105
+  natalieLuskNameW = (natalieLuskNameH.height/natalieLuskName.width)*natalieLuskNameH
+
 }
