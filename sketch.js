@@ -212,12 +212,13 @@
 let thumbnailImages = [];
 let portfolioCategoryPages = [];
 let thumbnailX = [];
+let thumbnailTitles = [];
 
 // sizing variables
 let verticalMargins = window.innerWidth*.065
 let spaceBetweenThumbnails = window.innerWidth*.03
 let thumbnailWidth = window.innerWidth*.12
-let thumbnailY = window.innerHeight*.56
+let thumbnailY = window.innerHeight*.53
 
 
 // PRELOAD FUNCTION
@@ -237,8 +238,15 @@ function preload(){
   portfolioCategoryPages[3] = "./merch.html"
   portfolioCategoryPages[4] = "./branding.html"
   portfolioCategoryPages[0] = "./illustration.html"
+  // thumbnail titles
+  thumbnailTitles[0] = "Print";
+  thumbnailTitles[1] = "Digital";
+  thumbnailTitles[2] = "Social";
+  thumbnailTitles[3] = "Merch";
+  thumbnailTitles[4] = "Branding";
+  thumbnailTitles[5] = "Illustration";
   // fonts:
-  font = loadFont('./assets/geist.ttf')
+  geist = loadFont('./assets/geist.ttf')
   //variables
   thumbnailX[0] = verticalMargins
 }
@@ -256,25 +264,103 @@ function setup() {
 
 // DRAW FUNCTION
 function draw() {
+  // text settings
+  textStyle(BOLD)
+  textFont(geist)
+  textSize(window.innerWidth * .013)
+  textAlign(LEFT, TOP)
 
-  background(	253, 253, 253);
+  let thumbnailTitleY = thumbnailY + thumbnailWidth + window.innerHeight * .023
 
+  // background
+  background(253, 253, 253)
 
- // draws the thumbnail images
-  for(i = 0; i < thumbnailImages.length; i++){
+  // check whether ANY thumbnail is being hovered
+  let hoveringAnyThumbnail = false
 
-    image(thumbnailImages[i], thumbnailX[i], thumbnailY, thumbnailWidth, 
-            thumbnailWidth)
-   thumbnailX[i+1] = thumbnailX[i]+ spaceBetweenThumbnails + thumbnailWidth
+  // thumbnail images + titles
+  for (let i = 0; i < thumbnailImages.length; i++) {
+
+    // check THIS thumbnail
+    let hoveringThumbnail =
+      mouseX >= thumbnailX[i] &&
+      mouseX <= thumbnailX[i] + thumbnailWidth &&
+      mouseY >= thumbnailY &&
+      mouseY <= thumbnailY + thumbnailWidth
+
+    // remember if we're hovering any thumbnail
+    if (hoveringThumbnail) {
+      hoveringAnyThumbnail = true
+    }
+
+    // image
+    image(
+      thumbnailImages[i],
+      thumbnailX[i],
+      thumbnailY,
+      thumbnailWidth,
+      thumbnailWidth
+    )
+
+    // title color
+    if (hoveringThumbnail) {
+      fill(0, 82, 249)
+      noStroke();
+      rect(
+        thumbnailX[i]-window.innerWidth*.001,
+        thumbnailY-window.innerWidth*.001, 
+        thumbnailWidth+(2*(innerWidth*.001)), 
+        thumbnailWidth+(2*(innerWidth*.001)))
+      image(
+      thumbnailImages[i],
+      thumbnailX[i],
+      thumbnailY,
+      thumbnailWidth,
+      thumbnailWidth
+    )
+    } else {
+      fill(0, 0, 0)
+    }
+
+    // title
+    text(
+      thumbnailTitles[i],
+      thumbnailX[i],
+      thumbnailTitleY
+    )
+
+    // calculate x position for next thumbnail
+    thumbnailX[i + 1] =
+      thumbnailX[i] + spaceBetweenThumbnails + thumbnailWidth
   }
+
+  // cursor
+  if (hoveringAnyThumbnail) {
+    cursor("./assets/cursor.png")
+  } else {
+    cursor(ARROW)
+  }
+
+  // biography paragraph
+  fill(0)
+
+  let bio = "is a graphic designer with over two years of professional experience and a B.A. in studio art. Her work is versatile; design outcomes range from imaginative to sleek, minimalist to maximalist. She prioritizes clarity of message, expressing the spirit of a brand, and a joyful approach to detail in the design process."
+
+  text(
+    bio,
+    verticalMargins,
+    window.innerHeight * .327,
+    window.innerWidth * .56,
+    window.innerHeight * .42
+  )
 }
 
-// Resizes the canvas in case the window is resized
+// WINDOW RESIZE FUNCTION
 function windowResized(){
   resizeCanvas(window.innerWidth, window.innerHeight)
   verticalMargins = window.innerWidth*.065
-  paceBetweenThumbnails = window.innerWidth*.03
+  spaceBetweenThumbnails = window.innerWidth*.03
   thumbnailWidth = window.innerWidth*.12
-  thumbnailY = window.innerHeight*.56
+  thumbnailY = window.innerHeight*.53
   thumbnailX[0] = verticalMargins
 }
