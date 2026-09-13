@@ -1,3 +1,4 @@
+
 // GLOBAL VARIABLES
 
 // thumbnail image arrays
@@ -7,10 +8,11 @@ let thumbnailX = [];
 let thumbnailTitles = [];
 
 // sizing variables
+let canvasHeight = window.innerWidth*1.72
 let verticalMargins = window.innerWidth*.065
 let spaceBetweenThumbnails = window.innerWidth*.03
 let thumbnailWidth = window.innerWidth*.12
-let thumbnailY = window.innerHeight*.53
+let thumbnailY;
   // natalie lusk name
   let natalieLuskNameY;
   let natalieLuskNameH;
@@ -60,6 +62,7 @@ function preload(){
 function setup() {
   // Draws canvas the size of the window
   createCanvas(window.innerWidth, window.innerHeight);
+  thumbnailY = height*.53
   // Text formatting
   //textSize(window.innerWidth/60);
   textStyle(ITALIC);
@@ -70,12 +73,21 @@ function setup() {
 // DRAW FUNCTION
 function draw() {
 
+  // makes sure elements don't get overcrowded on short screens
+  if ((window.innerHeight/window.innerWidth) < .41){
+    resizeCanvas(window.innerWidth, window.innerWidth*.41)
+  } else{
+    resizeCanvas(window.innerWidth, window.innerHeight)
+  }
+
+
   // text settings
   textStyle(BOLD)
   textFont(geist)
   textSize(window.innerWidth * .013)
   textAlign(LEFT, TOP)
-  let thumbnailTitleY = thumbnailY + thumbnailWidth + window.innerHeight * .023
+  let thumbnailTitleY = thumbnailY + thumbnailWidth + height * .023
+
 
   // background color
   background(253, 253, 253)
@@ -93,8 +105,15 @@ function draw() {
       mouseY >= thumbnailY &&
       mouseY <= thumbnailY + thumbnailWidth
 
+    let hoveringText = 
+    mouseX >= thumbnailX[i] &&
+    mouseY >= thumbnailTitleY &&
+    mouseX <= thumbnailX[i] + textWidth(thumbnailTitles[i]) &&
+    mouseY <= thumbnailTitleY + window.innerWidth * .013
+
+
     // remember if we're hovering any thumbnail
-    if (hoveringThumbnail) {
+    if (hoveringThumbnail || hoveringText) {
       hoveringAnyThumbnail = true
     }
 
@@ -108,7 +127,7 @@ function draw() {
     )
 
     // thumbnail cursor interactivity
-    if (hoveringThumbnail) {
+    if (hoveringThumbnail || hoveringText) {
       // changes text color
       fill(217, 232, 17)
       // draws border around thumbnail image
@@ -158,13 +177,13 @@ function draw() {
   text(
     bio,
     verticalMargins,
-    window.innerHeight * .327,
+    height * .327,
     window.innerWidth * .56,
-    window.innerHeight * .42
+    height * .42
   )
 
   // full name image
-  natalieLuskNameY = (window.innerHeight * .327) - window.innerHeight*.075
+  natalieLuskNameY = (height * .327) - height*.075
   natalieLuskNameH = natalieLuskName.height*(((window.innerWidth * .56)/2)/natalieLuskName.width)
   natalieLuskNameW = (window.innerWidth * .56)/2
   image
@@ -219,20 +238,48 @@ if (
 location.assign("index.html")
   }
 
+  // draws top left tabs
+  text('Resume', verticalMargins, natLuskStampLogoW);
+  
+  if(
+    mouseX >= verticalMargins &&
+    mouseX <= textWidth('Resume') + verticalMargins &&
+    mouseY >= natLuskStampLogoW &&
+    mouseY <= natLuskStampLogoW + window.innerWidth * .013
+  ) {
+    fill (217, 232, 17)
+    text('Resume', verticalMargins, natLuskStampLogoW);
+    cursor("./assets/cursor.png")
+  }
+
+  if(
+    mouseX >= verticalMargins &&
+    mouseX <= textWidth('Resume') + verticalMargins &&
+    mouseY >= natLuskStampLogoW &&
+    mouseY <= natLuskStampLogoW + window.innerWidth * .013 &&
+    mouseIsPressed
+  ) {
+    window.location.href = "google.com"
+
+  }
 
 }
 
 // WINDOW RESIZE FUNCTION
 function windowResized(){
 
-  resizeCanvas(window.innerWidth, window.innerHeight)
+  if ((window.innerHeight/window.innerWidth) < .41){
+    resizeCanvas(window.innerWidth, window.innerWidth*.41)
+  } else{
+    resizeCanvas(window.innerWidth, window.innerHeight)
+  }
   verticalMargins = window.innerWidth*.065
   spaceBetweenThumbnails = window.innerWidth*.03
   thumbnailWidth = window.innerWidth*.12
-  thumbnailY = window.innerHeight*.53
+  thumbnailY = height*.53
   thumbnailX[0] = verticalMargins
-  natalieLuskNameY = (window.innerHeight * .327) - window.innerHeight*.11
-  natalieLuskNameH = window.innerHeight*.105
+  natalieLuskNameY = (height * .327) - height*.11
+  natalieLuskNameH = height*.105
   natalieLuskNameW = (natalieLuskNameH.height/natalieLuskName.width)*natalieLuskNameH
 
 }
